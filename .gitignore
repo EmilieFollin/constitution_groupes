@@ -84,3 +84,8 @@ fabric.properties
 .idea/sonarlint
 
 # End of https://www.gitignore.io/api/phpstorm
+
+constitution_groupes.yml
+misc.xml
+modules.xml
+vcs.xml
