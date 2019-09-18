@@ -23,6 +23,8 @@ SELECT AVG(`note`) FROM `technologies_has_etudiant` inner JOIN technologies on t
 
 END
 
+        - Les procédures stockées Moyennes sont à appelées lorsque toutes les notes de l'élève sont rentrées (au moins une note back et une note front)
+
 -Note par projet : calculée à partir des moyennes back et front de l'étudiant en fonction du coefficient d'importance (back et front) utilisée pour le projet en cours.
 Paramètre : idetudiant (int)
             idprojet (int)
@@ -68,6 +70,11 @@ Paramètre : idetudiant (int)
         
         END
 
+
+        - Lors de l'attribution d'un projet, le professeur attribue un pourcentage d'importance au front et au back pour ce projet.
+        La note calculés permettra d'attribué à l'étudiant sa moyenne général pour se projet en question.
+
+
 Total d'élèves par classe : calculé à partir du nombre d'étudiant liés à cette classe 
 parametres : idclasse (int)
 
@@ -86,9 +93,10 @@ parametres : idclasse (int)
         
         
         
-Exemple d'appel de procédure stockées :
+Exemple d'appel de procédures stockées :
 
 $Note = mysql_query( ‘CALL NoteProjet(PARAMETRE1, PARAMETRE2, ...)’ );
 
 *Remplacer "NoteProjet" par le nom de votre procédure, et PARAMETRE1 par le nom de votre paramètre.
+
 
