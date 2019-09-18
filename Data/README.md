@@ -83,3 +83,12 @@ parametres : idclasse (int)
         
         END
         
+        
+        
+        
+Exemple d'appel de procédure stockées :
+
+$Note = mysql_query( ‘CALL NoteProjet(PARAMETRE1, PARAMETRE2, ...)’ );
+
+*Remplacer "NoteProjet" par le nom de votre procédure, et PARAMETRE1 par le nom de votre paramètre.
+
