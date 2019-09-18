@@ -8,7 +8,9 @@ Procédure stockées :
 Paramètre : idetudiant (int)
 
 BEGIN
+
 SELECT AVG(`note`) FROM `technologies_has_etudiant` inner JOIN technologies on technologies.idtechnologies = technologies_idtechnologies where technologies.front_back = 1 AND `etudiant_idetudiant` = idetudiant;
+
 END
 
 - Moyenne Front : calculée à partir  aux notes attribuées aux technologies front
@@ -16,7 +18,9 @@ END
 Paramètre : idetudiant (int)
 
 BEGIN
+
 SELECT AVG(`note`) FROM `technologies_has_etudiant` inner JOIN technologies on technologies.idtechnologies = technologies_idtechnologies where technologies.front_back = 0 AND `etudiant_idetudiant` = idetudiant;
+
 END
 
 -Note par projet : calculée à partir des moyennes back et front de l'étudiant en fonction du coefficient d'importance (back et front) utilisée pour le projet en cours.
