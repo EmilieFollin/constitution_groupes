@@ -6,6 +6,7 @@
  * Time: 14:03
  */
 require_once './Application/Controller/IndexController.php';
+require_once './Application/Controller/GroupeController.php';
 class Framework
 {
     private $_viewparams;
