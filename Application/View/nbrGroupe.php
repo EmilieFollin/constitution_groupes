@@ -11,6 +11,8 @@
 <div>
     <?php if($result !== null){
         echo '<p>Il y aura '.$result.' personnes par groupe</p>';
-    }?>
+    }
+
+    ?>
 
 </div>
