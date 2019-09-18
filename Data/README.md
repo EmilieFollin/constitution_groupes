@@ -71,8 +71,8 @@ Paramètre : idetudiant (int)
         END
 
 
-        - Lors de l'attribution d'un projet, le professeur attribue un pourcentage d'importance au front et au back pour ce projet.
-        La note calculés permettra d'attribué à l'étudiant sa moyenne général pour se projet en question.
+  - Lors de l'attribution d'un projet, le professeur attribue un pourcentage d'importance au front et au back pour ce projet.
+  La note calculés permettra d'attribué à l'étudiant sa moyenne général pour se projet en question.
 
 
 Total d'élèves par classe : calculé à partir du nombre d'étudiant liés à cette classe 
