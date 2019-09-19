@@ -30,51 +30,38 @@
 
     </div>
 </div>
-<div class="container" id="container2">
+<div class="container-fluid" id="container2">
     <div class="row">
         <div class="col"></div>
         <div class="col-10">
-
             <div class="card">
-                <h3 class="card-header text-center font-weight-bold text-uppercase py-4">Ajout des étudiants dans la base</h3>
+                <h3 class="card-header text-center font-weight-bold text-uppercase py-4">AJOUT DES ETUDIANTS DANS LA BASE</h3>
                 <div class="card-body">
-                    <div  class="table-editable">
-
-                        <span class="table-add float-right mb-3 mr-2">
-                            <h4>Nombre de groupe</h4>
-                            <div class="def-number-input number-input safari_only rounded mx-auto d-block">
-                              <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                              <input class="quantity" min="2" max="10" name="quantity" value="2" type="number">
-                              <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
-                            </div>
-                        </span>
-
-                        <table id="matable" class="table table-bordered table-responsive-md table-striped text-center">
+                    <div id="table" class="table-editable"><span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
+                                        class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
+                        <table class="table table-bordered table-responsive-md table-striped text-center">
                             <thead>
                             <tr>
-                                <th class="text-center">Nom</th>
-                                <th class="text-center">Prénom</th>
-                                <th class="text-center">Type Personnalité</th>
-                                <th class="text-center"> Moyenne Back</th>
-                                <th class="text-center"> Moyenne Front</th>
-
+                                <th class="text-center"><strong>Nom</strong></th>
+                                <th class="text-center"><strong>Prénom</strong></th>
+                                <th class="text-center"><strong>Type Personnalité </strong></th>
+                                <th class="text-center"><strong>Moyenne Back</strong> </th>
+                                <th class="text-center"><strong>Moyenne Front</strong> </th>
                             </tr>
                             </thead>
-
                             <tbody>
+                            <tr>
+                                <td class="pt-3-half" contenteditable="true"></td>
+                                <td class="pt-3-half" contenteditable="true"></td>
+                                <td class="pt-3-half" contenteditable="true"></td>
+                                <td class="pt-3-half" contenteditable="true"></td>
+                                <td class="pt-3-half" contenteditable="true"></td>
 
-                            <tr id="duplicater" class="duplicater0">
-
-                                <td class="pt-3-half" contenteditable="true"></td>
-                                <td class="pt-3-half" contenteditable="true"></td>
-                                <td class="pt-3-half" contenteditable="true"></td>
-                                <td class="pt-3-half" contenteditable="true"></td>
-                                <td class="pt-3-half" contenteditable="true"></td>
-                            </tr>
-
+                                <td>
+                                    <span class="table-remove"><button type="button" id="danger-color-dark" class="btn danger-color-dark btn-rounded btn-sm my-0">supprimer</button></span>
+                                </td>
                             </tbody>
                         </table>
-                        <span class="float-right"><a href="#!" id="boutonplus" ><i class="far fa-plus-square fa-2x" onclick="duplicate()" aria-hidden="true"></i></a></span>
                         <span class="table-add mb-3 mr-2 rounded mx-auto d-block" id="span"><a href="#!" class="text-success "><button type="button" class="btn btn-success btn-rounded btn-lg rounded mx-auto d-block">Enregistrer et création des groupes</button></a></span>
                     </div>
                 </div>
@@ -83,19 +70,38 @@
         <div class="col"></div>
     </div>
 </div>
+</body>
+
+
+</div>
+                </div>
+            </div>
+        </div>
+        <div class="col"></div>
+    </div>
+</div>
+
+
 
 </body>
+
+
 
 <script>
     var i = 0;
     var original = document.getElementById('duplicater');
 
     function duplicate() {
-        var clone = original.cloneNode(true); // "deep" clone
+        var clone = original.cloneNode(true);
         clone.id = "duplicater" + ++i;
-        // or clone.id = ""; if the divs don't need an ID
+
         original.parentNode.appendChild(clone);
     }
+
+    $tableID.on('click', '.table-remove', function () {
+
+        $(this).parents('tr').detach();
+    });
 
 </script>
 
@@ -106,5 +112,93 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.9/js/mdb.min.js"></script>
+
+
+
+<script>
+    const $tableID = $('#table');
+    const $BTN = $('#export-btn');
+    const $EXPORT = $('#export');
+
+    const newTr = `
+<tr class="hide">
+  <td class="pt-3-half" contenteditable="true"></td>
+  <td class="pt-3-half" contenteditable="true"></td>
+  <td class="pt-3-half" contenteditable="true"></td>
+  <td class="pt-3-half" contenteditable="true"></td>
+  <td class="pt-3-half" contenteditable="true"></td>
+  <td>
+    <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0 waves-effect waves-light">Supprimer</button></span>
+  </td>
+</tr>`;
+
+    $('.table-add').on('click', 'i', () => {
+
+        const $clone = $tableID.find('tbody tr').last().clone(true).removeClass('hide table-line');
+
+        if ($tableID.find('tbody tr').length === 0) {
+
+            $('tbody').append(newTr);
+        }
+
+        $tableID.find('table').append($clone);
+    });
+
+    $tableID.on('click', '.table-remove', function () {
+
+        $(this).parents('tr').detach();
+    });
+
+    $tableID.on('click', '.table-up', function () {
+
+        const $row = $(this).parents('tr');
+
+        if ($row.index() === 1) {
+            return;
+        }
+
+        $row.prev().before($row.get(0));
+    });
+
+    $tableID.on('click', '.table-down', function () {
+
+        const $row = $(this).parents('tr');
+        $row.next().after($row.get(0));
+    });
+
+    // A few jQuery helpers for exporting only
+    jQuery.fn.pop = [].pop;
+    jQuery.fn.shift = [].shift;
+
+    $BTN.on('click', () => {
+
+        const $rows = $tableID.find('tr:not(:hidden)');
+        const headers = [];
+        const data = [];
+
+        // Get the headers (add special header logic here)
+        $($rows.shift()).find('th:not(:empty)').each(function () {
+
+            headers.push($(this).text().toLowerCase());
+        });
+
+        // Turn all existing rows into a loopable array
+        $rows.each(function () {
+            const $td = $(this).find('td');
+            const h = {};
+
+            // Use the headers from earlier to name our hash keys
+            headers.forEach((header, i) => {
+
+                h[header] = $td.eq(i).text();
+            });
+
+            data.push(h);
+        });
+
+        // Output the result
+        $EXPORT.text(JSON.stringify(data));
+    });
+</script>
 </html>
 

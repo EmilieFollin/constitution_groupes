@@ -95,7 +95,7 @@
                         </div>
 
 					</div>
-                    <span class="table-add mb-3 mr-2 rounded mx-auto d-block"><a href="#!" class="text-success "><button type="button" class="btn btn-success btn-rounded btn-lg rounded mx-auto d-block">Enregistrer les informations</button></a></span>
+                    <span class="table-add mb-3 mr-2 rounded mx-auto d-block" id="span"><a href="#!" class="text-success "><button type="button" class="btn btn-success btn-rounded btn-lg rounded mx-auto d-block">Enregistrer les informations</button></a></span>
 
                 </div>
 			</div>
