@@ -10,13 +10,12 @@ class Model
 {
     private static $connect = null;
     private $bdd;
-    private $chat;
     public function __construct(){
 
         $strBddServeur = "localhost";
         $strBddLogin = "root";
         $strBddPassword = "123456";
-        $strBddBase = "groupe";
+        $strBddBase = "profil";
 
 
         try{
@@ -58,7 +57,8 @@ class Model
     }
     public function insert($table,$fields,$data){
         $requete = "INSERT INTO $table "."(".$fields.") VALUES (".$data.")"or die();
-        $resultat= $this->bdd->query($requete);
+var_dump($requete);
+        $resultat= $this->bdd->query($requete) ;
         return $resultat;
     }
     public function update($table , $data , $where =''){

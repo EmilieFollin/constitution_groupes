@@ -6,6 +6,7 @@
  * Time: 14:03
  */
 require_once './Application/Controller/IndexController.php';
+require_once './Application/Controller/GroupeController.php';
 class Framework
 {
     private $_viewparams;
@@ -63,6 +64,7 @@ class Framework
         }else{
             if (isset($getParamUrlArray[3])) {
                 if ($getParamUrlArray[2] != "" && $getParamUrlArray[3] != "") {
+                    var_dump(file_exists(CTRL_PATH . CONTROLLER . "Controller.php"));
                     if (file_exists(CTRL_PATH . CONTROLLER . "Controller.php")) {
                         $controllerName = CONTROLLER . "Controller";
                         $actionName = ACTION;
@@ -72,17 +74,17 @@ class Framework
                         if (method_exists($controller, ACTION)) {
                             $controller->$actionName();
                         } else {
-                            echo 'Marche pas';
+                            echo 'Marchee pas';
                         }
                     } else {
-                        echo 'Marche pas';
+                        echo 'Marchae pas';
                     }
                 } else {
-                    echo 'Marche pas';
+                    echo 'Marchde pas';
 
                 }
             } else {
-                echo 'Marche pas';
+                echo 'Marchce pas';
 
             }
         }
