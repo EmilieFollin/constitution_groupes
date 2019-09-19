@@ -19,11 +19,11 @@
 
 <form action="" method="get" class="form-example">
   <div class="form-example">
-    <label for="name">CSS : </label>
+    <label for="CSS">CSS : </label>
     <input type="text" name="CSS" id="CSS" required>
   </div>
   <div class="form-example">
-    <label for="email">Php : </label>
+    <label for="php">Php : </label>
     <input type="text" name="php" id="php" required>
   </div>
   <div class="form-example">
