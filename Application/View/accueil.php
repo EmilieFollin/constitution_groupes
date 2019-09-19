@@ -75,7 +75,7 @@
                             </tbody>
                         </table>
                         <span class="float-right"><a href="#!" id="boutonplus" ><i class="far fa-plus-square fa-2x" onclick="duplicate()" aria-hidden="true"></i></a></span>
-                        <span class="table-add mb-3 mr-2 rounded mx-auto d-block"><a href="affichage.html" class="text-success "><button type="button" class="btn btn-success btn-rounded btn-lg rounded mx-auto d-block">Enregistrer et création des groupes</button></a></span>
+                        <span class="table-add mb-3 mr-2 rounded mx-auto d-block" id="span"><a href="#!" class="text-success "><button type="button" class="btn btn-success btn-rounded btn-lg rounded mx-auto d-block">Enregistrer et création des groupes</button></a></span>
                     </div>
                 </div>
             </div>

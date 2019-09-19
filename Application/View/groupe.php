@@ -5,7 +5,7 @@
  * Date: 17/09/2019
  * Time: 15:07
  */
-var_dump($student->getId());
+//
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,7 +26,7 @@ var_dump($student->getId());
 <!-- Editable table -->
 <div class="container-fluid" id="container">
     <div class="row">
-        <div class="col"><a href="index.html"><button class="btn btn-danger btn-rounded btn-lg">Retour</button></a>  </div>
+        <div class="col"><a href="accueil.php"><button id="couleurretour" class="btn  red darken-3 btn-rounded btn-lg">Retour</button></a></div>
         <div class="col-8">
             <div>
                 <img id="image" class="rounded mx-auto d-block" src="../../assets/img/cropped-logo-school-2.png">
@@ -84,20 +84,32 @@ var_dump($student->getId());
                         <tbody>
                         <tr>
                             <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
+                            <td></td>
+                            <td></td>
 
                         </tr>
                         <tr>
                             <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
+                            <td></td>
+                            <td></td>
 
                         </tr>
                         <tr>
                             <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
+                            <td></td>
+                            <td></td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td></td>
+                            <td></td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td></td>
+                            <td></td>
 
                         </tr>
                         </tbody>
@@ -136,20 +148,32 @@ var_dump($student->getId());
                         <tbody>
                         <tr>
                             <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
+                            <td></td>
+                            <td></td>
 
                         </tr>
                         <tr>
                             <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
+                            <td></td>
+                            <td></td>
 
                         </tr>
                         <tr>
                             <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
+                            <td></td>
+                            <td></td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td></td>
+                            <td></td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td></td>
+                            <td></td>
 
                         </tr>
                         </tbody>
@@ -186,20 +210,32 @@ var_dump($student->getId());
                         <tbody>
                         <tr>
                             <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
+                            <td></td>
+                            <td></td>
 
                         </tr>
                         <tr>
                             <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
+                            <td></td>
+                            <td></td>
 
                         </tr>
                         <tr>
                             <th scope="row">3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
+                            <td></td>
+                            <td></td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td></td>
+                            <td></td>
+
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td></td>
+                            <td></td>
 
                         </tr>
                         </tbody>
