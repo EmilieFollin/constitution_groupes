@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: WEBENOO
- * Date: 17/09/2019
- * Time: 14:03
- */
+
 require_once './Application/Controller/IndexController.php';
 require_once './Application/Controller/GroupeController.php';
 class Framework
