@@ -12,7 +12,7 @@ var_dump($student->getId());
 <head>
     <meta charset="UTF-8">
     <title>blablaal</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="../../assets/style.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -29,7 +29,7 @@ var_dump($student->getId());
         <div class="col"><a href="index.html"><button class="btn btn-danger btn-rounded btn-lg">Retour</button></a>  </div>
         <div class="col-8">
             <div>
-                <img id="image" class="rounded mx-auto d-block" src="assets/img/cropped-logo-school-2.png">
+                <img id="image" class="rounded mx-auto d-block" src="../../assets/img/cropped-logo-school-2.png">
             </div>
         </div>
 

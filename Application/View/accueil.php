@@ -11,7 +11,7 @@
 <head>
     <meta charset="UTF-8">
     <title>blablaal</title>
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="stylesheet" href="../../assets/style.css">
     <script src="script.js"></script>
 
     <!-- Font Awesome -->
@@ -29,7 +29,7 @@
         <div class="col"></div>
         <div class="col-8">
             <div>
-                <img id="image" class="rounded mx-auto d-block" src="assets/img/cropped-logo-school-2.png">
+                <img id="image" class="rounded mx-auto d-block" src="../../assets/img/cropped-logo-school-2.png">
             </div>
         </div>
 
