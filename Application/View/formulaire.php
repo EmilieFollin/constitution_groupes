@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>blablaal</title>
+	<title>Constitution groupe</title>
 	<link rel="stylesheet" href="../../assets/style.css">
 	<script src="script.js"></script>
 
@@ -51,56 +51,73 @@
 							</div>
 						</div>
 						</form>
-						<input type="" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Type de personnalité">
+                        <input type="" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Type de personnalité">
 
-						<div class="form-row mb-4">
-							<div class="col">
-								<label>Matière</label>
-								<select class="browser-default custom-select mb-4">
-									<option value="">PHP</option>
-									<option value="1">JAVA</option>
-									<option value="2">LARAVEL</option>
-									<option value="3">SYMFONY</option>
-									<option value="4">SQL</option>
-									<option value="4">ORACLE</option>
-									<option value="4">C++</option>
-									<option value="4">C#</option>
-									<option value="5"></option>
-								</select>
-							</div>
+                        <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success" style="margin-bottom: 6%"><i
+                                        class="fas fa-plus fa-2x" onclick="duplicate()" aria-hidden="true"></i></a></span>
+                        <div style="height: 51px; width: 100%"></div>
+                        <div id="duplicater" class="duplicater0">
+                            <div class="form-row mb-4">
+                                <div class="col">
+                                    <label>Matière</label>
+                                    <select class="browser-default custom-select mb-4">
+                                        <option value="">PHP</option>
+                                        <option value="1">JAVA</option>
+                                        <option value="2">LARAVEL</option>
+                                        <option value="3">SYMFONY</option>
+                                        <option value="4">SQL</option>
+                                        <option value="4">ORACLE</option>
+                                        <option value="4">C++</option>
+                                        <option value="4">C#</option>
+                                        <option value="5">RUBY</option>
+                                    </select>
+                                </div>
 
-							<div class="col">
-								<label class="text-center">Note de 0 à 10</label>
-								<select class="browser-default custom-select mb-4">
-									<option value="">0</option>
-									<option value="">1</option>
-									<option value="1">2</option>
-									<option value="2">3</option>
-									<option value="3">4</option>
-									<option value="4">5</option>
-									<option value="4">6</option>
-									<option value="4">7</option>
-									<option value="4">8</option>
-									<option value="4">9</option>
-									<option value="4">10</option>
-								</select>
+                                <div class="col">
+                                    <label class="text-center">Note de 0 à 10</label>
+                                    <select class="browser-default custom-select mb-4">
+                                        <option value="">0</option>
+                                        <option value="">1</option>
+                                        <option value="1">2</option>
+                                        <option value="2">3</option>
+                                        <option value="3">4</option>
+                                        <option value="4">5</option>
+                                        <option value="4">6</option>
+                                        <option value="4">7</option>
+                                        <option value="4">8</option>
+                                        <option value="4">9</option>
+                                        <option value="4">10</option>
+                                    </select>
 
-							</div>
+                                </div>
 
+                            </div>
+                        </div>
 
-
-						</div>
-
-						<span class="table-add mb-3 mr-2 rounded mx-auto d-block"><a href="#!" class="text-success "><button type="button" class="btn btn-success btn-rounded btn-lg rounded mx-auto d-block">Enregistrer les informations</button></a></span>
 					</div>
-				</div>
+                    <span class="table-add mb-3 mr-2 rounded mx-auto d-block"><a href="#!" class="text-success "><button type="button" class="btn btn-success btn-rounded btn-lg rounded mx-auto d-block">Enregistrer les informations</button></a></span>
+
+                </div>
 			</div>
 		</div>
 		<div class="col"></div>
 	</div>
 </div>
+
 </body>
 
+<script>
+    var i = 0;
+    var original = document.getElementById('duplicater');
+
+    function duplicate() {
+        var clone = original.cloneNode(true); // "deep" clone
+        clone.id = "duplicater" + ++i;
+        // or clone.id = ""; if the divs don't need an ID
+        original.parentNode.appendChild(clone);
+    }
+
+</script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- Bootstrap tooltips -->
