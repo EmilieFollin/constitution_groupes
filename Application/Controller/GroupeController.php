@@ -8,9 +8,18 @@
 
 class GroupeController extends Framework
 {
-    public function index(){
+    public function index() {
 
-        $this->render('test',[]);
+        $client = new \GuzzleHttp\Client(["base_uri" => "http://httpbin.org"]);
+        $options = [
+            'json' => [
+                ["fruit" => "apple"],
+                ["legumes"=>"haricot"]
+            ]
+        ];
+        $response = $client->post("/post", $options);
+        echo $response->getBody();
+        $this->render('test',["response"=> $response->getBody()]);
 
     }
 
