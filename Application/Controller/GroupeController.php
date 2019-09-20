@@ -10,6 +10,7 @@ class GroupeController extends Framework
         $nbrLeader = count($leader);
 
         $a = $groupe->triGroupe();
+        $a = json_encode($a);
         $client = new \GuzzleHttp\Client(["base_uri" => "https://ruby-skill-teams-filtering.knmriznm.cf/"]);
         $options = [
             'json' => $a
