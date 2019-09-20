@@ -1,40 +1,42 @@
 class ApplicationController < ActionController::Base
+    skip_before_action :verify_authenticity_token
+
     def build_teams
-        n_teams = 4
-        students = []
+	require 'json'
+	raise 'AAYAYAYAYAOOO, YOU NEED TO POST BRUH' unless params[:_json]
+	request = JSON.parse(params[:_json])
+	
+	received_teams = []
+	request.each do |received_team|
+		received_teams << received_team
+	end
+	p 'lllllllllllllllllllllllllll'
+	p received_teams.count
+	n_teams = received_teams.count
 
         i = 1
-
-        while i <= 200
-            i+=1
-            students << {
-                :name => "Michel",
-                :average_back_rating => rand(1...100),
-                :average_front_rating => rand(1...100),
-                :id => i
-            }
-        end
-
-        team_size = students.count/n_teams 
+	
+	
+        team_size = received_teams.first.count/n_teams 
         allowed_difference = team_size*0.2
 
         p allowed_difference
-        
-        @teams = []
-
+       	 
+	@teams = received_teams
         
         # Groupes triés par personnalité
-        n_teams.times do |n_team|
-            @teams[n_team] = students[team_size*n_team...team_size*n_team+team_size]
+        @teams.each_with_index do |team, i|
             n_back = 0
             n_front = 0
             n_mid = 0
-            students[team_size*n_team...team_size*n_team+team_size].each do |student|
-                n_back += 1 if student[:average_back_rating] > student[:average_front_rating]
-                n_front += 1 if student[:average_front_rating] > student[:average_back_rating]
-                n_mid += 1 if student[:average_front_rating] == student[:average_back_rating]
+            team.each do |student|
+		p 'fffffffffffffffffffffffffffffffffffffffffffff'
+                p student
+		n_back += 1 if student['moyenne_back'].to_i > student['moyenne_front'].to_i
+                n_front += 1 if student['moyenne_front'].to_i > student['moyenne_back'].to_i
+                n_mid += 1 if student['moyenne_front'].to_i == student['moyenne_back'].to_i
             end
-            @teams[n_team] << {back: n_back, front: n_front, mid: n_mid}
+            @teams[i] << {back: n_back, front: n_front, mid: n_mid}
         end
         
         @teams.each_with_index do |team, team_index|
@@ -66,7 +68,7 @@ class ApplicationController < ActionController::Base
                     result = exchange_student(giver_team, receiver_team, gived_student_index, transfered_student_index)
 
                     p 'NO MORE BACK STUDENTS AVAILABLE'
-                    return unless giver_team_index.is_a?(Integer)
+                    next unless giver_team_index.is_a?(Integer)
                     @teams[giver_team_index] = result[0]
                     @teams[team_index] = result[1]
 
@@ -88,7 +90,7 @@ class ApplicationController < ActionController::Base
                     result = exchange_student(giver_team, receiver_team, gived_student_index, transfered_student_index)
 
                     p 'NO MORE FRONT STUDENTS AVAILABLE'
-                    return unless giver_team_index.is_a?(Integer)
+                    next unless giver_team_index.is_a?(Integer)
                     @teams[giver_team_index] = result[0]
                     @teams[team_index] = result[1]
 
@@ -97,6 +99,7 @@ class ApplicationController < ActionController::Base
                 end
             end
         end        
+	render json: @teams
     end
 
 
@@ -125,9 +128,9 @@ class ApplicationController < ActionController::Base
         p team.last
         back = front = 0
         team.each do |student|
-            next unless student[:average_front_rating]
-            back += 1 if student[:average_front_rating] < student[:average_back_rating]
-            front += 1 if student[:average_front_rating] > student[:average_back_rating]
+            next unless student['moyenne_front']
+            back += 1 if student['moyenne_front'].to_i < student['moyenne_back'].to_i
+            front += 1 if student['moyenne_front'].to_i > student['moyenne_back'].to_i
         end
         
         team.last[:front] = front
@@ -151,13 +154,13 @@ class ApplicationController < ActionController::Base
     def select_exchangeable_student(team, skill)
         if skill == 'front'
             team.each_with_index do |student, index|
-                next unless student[:average_front_rating]
-                return index if student[:average_front_rating] > student[:average_back_rating]
+                next unless student['moyenne_front']
+                return index if student['moyenne_front'].to_i > student['moyenne_back'].to_i
             end
         elsif skill == 'back'
             team.each_with_index do |student, index|
-                next unless student[:average_front_rating]
-                return index if student[:average_front_rating] < student[:average_back_rating]
+                next unless student['moyenne_front']
+                return index if student['moyenne_front'].to_i < student['moyenne_back'].to_i
             end
         end
     end
