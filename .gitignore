@@ -91,3 +91,7 @@ fabric.properties
 /ruby_skill_teams_filtering/storage/*
 /ruby_skill_teams_filtering/public/assets
 /ruby_skill_teams_filtering/config/master.key
+constitution_groupes.yml
+misc.xml
+modules.xml
+vcs.xml
