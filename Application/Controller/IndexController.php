@@ -9,7 +9,12 @@
 class IndexController extends Framework
 {
     public function index(){
-        $this->render('groupe',[]);
+        include_once MDL_PATH.'Etudiants/Etudiants.php';
+        $etudiant = new Etudiants();
+        $student = $etudiant->getInstanceOf();
+        var_dump($student);
+
+        $this->render('groupe',['student' => $student]);
     }
 
 }

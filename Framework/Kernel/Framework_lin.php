@@ -2,26 +2,27 @@
 /**
  * Created by PhpStorm.
  * User: WEBENOO
- * Date: 17/09/2019
- * Time: 14:03
+ * Date: 18/09/2019
+ * Time: 08:59
  */
-require_once './Application/Controller/IndexController.php';
-require_once './Application/Controller/GroupeController.php';
-class Framework
-{
-    private $_viewparams;
 
+class Framework_lin
+{
     public static function run()
     {
         self::initialize();
         self::autoloader();
+        self::header();
         self::switcher();
+        self::footer();
 
     }
 
-    private static function initialize(){
+    private static function initialize()
+    {
         $getParamUrl= $_SERVER['REQUEST_URI'];
         $getParamUrlArray = explode("/",$getParamUrl);
+
 
         define('DIRSEP',DIRECTORY_SEPARATOR);
         define('ROOT', getcwd().DIRSEP);
@@ -31,15 +32,16 @@ class Framework
         define('CTRL_PATH', APPPATH. 'Controller'.DIRSEP);
         define('MDL_PATH', APPPATH. 'Model'.DIRSEP);
         define('VIEW_PATH', APPPATH. 'View'.DIRSEP);
-        if (count($getParamUrlArray) == 5 || count($getParamUrlArray) == 4 ) {
-            if ($getParamUrlArray[2] != "" && $getParamUrlArray[3] != "") {
-                define('CONTROLLER', $getParamUrlArray[2]);
-                define('ACTION', $getParamUrlArray[3]);
+        define('KERNEL_PATH',FRAMEWORK_PATH. 'Kernel'.DIRSEP);
+        if (count($getParamUrlArray) == 3) {
 
+            if ($getParamUrlArray[1] != "" && $getParamUrlArray[2] != "") {
+                define('CONTROLLER', $getParamUrlArray[1]);
+                define('ACTION', $getParamUrlArray[2]);
             }
         }
-    }
 
+    }
     private static function autoloader()
     {
         spl_autoload_register(array(__CLASS__,'loading'));
@@ -47,13 +49,12 @@ class Framework
     private static function loading($class)
     {
         if (substr($class,-10) == "Controller"){
-            require_once "Framework.php";
+            require_once "Framework_lin.php";
         }
         elseif (substr($class,-5) == "Model"){
-            require_once "Framework.php";
+            require_once "Framework_lin.php";
         }
     }
-
     private static function switcher()
     {
         $getParamUrl = $_SERVER['REQUEST_URI'];
@@ -64,52 +65,37 @@ class Framework
         }else{
             if (isset($getParamUrlArray[3])) {
                 if ($getParamUrlArray[2] != "" && $getParamUrlArray[3] != "") {
-                    var_dump(file_exists(CTRL_PATH . CONTROLLER . "Controller.php"));
                     if (file_exists(CTRL_PATH . CONTROLLER . "Controller.php")) {
                         $controllerName = CONTROLLER . "Controller";
                         $actionName = ACTION;
-
 
                         $controller = new $controllerName;
                         if (method_exists($controller, ACTION)) {
                             $controller->$actionName();
                         } else {
-                            echo 'Marchee pas';
+                            echo 'MArche aps ';
                         }
                     } else {
-                        echo 'Marchae pas';
+                        echo 'MArche aps ';
                     }
                 } else {
-                    echo 'Marchde pas';
+                    echo 'MArche aps ';
 
                 }
             } else {
-                echo 'Marchce pas';
+                echo 'MArche aps ';
 
             }
         }
+
+
+
     }
-    /**
-     * Permet de générer l'affichage
-     * de la vue passé en paramètre.
-     * @param $view Vue à afficher.
-     * @param array $viewparam Données à passer à la vue.
-     */
-    protected function render(string $view, Array $viewparams = []) {
-        # Récupération et Affectation des Paramètres de la Vue
-        $this->_viewparams = $viewparams;
-        # Permet d'accéder au tableau directement dans des variables
-        extract($this->_viewparams);
-        # Chargement de la Vue
-        $view = VIEW_PATH . '/' . $view . '.php';
-        if( file_exists($view) ) :
-            # Chargement de la Vue
-            include_once $view;
-        else :
-            $this->render('Layout/404', [
-                'message' => 'Aucune vue correspondante'
-            ]);
-        endif;
+    private static function footer(){
+        include_once LAYOUT_PATH.'footer.php';
+    }
+    private static function header(){
+        include_once LAYOUT_PATH.'header.php';
     }
 
 }

@@ -1,6 +1,5 @@
 <?php
 
-
 class Groupes
 {
     public function nbrGroupe() {
@@ -393,4 +392,5 @@ class Groupes
 
         return $bigArray;
     }
+
 }

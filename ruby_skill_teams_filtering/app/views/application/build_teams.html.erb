@@ -1,0 +1,9 @@
+<h1>TEAMS</h1>
+
+<% @teams.each_with_index do |team, index| %>
+    <p>TEAM <%= index+1 %></p>
+    <% team.each do |student| %>
+        <p><%= student %></p>
+    <% end %>
+    <hr>
+<% end %>
