@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,21 +39,32 @@
 
 			<div class="card">
 				<h3 class="card-header text-center font-weight-bold text-uppercase py-4">Auto-évaluation</h3>
+                <form action="#" method="post">
 				<div class="card-body">
 					<div  class="table-editable">
 						<div class="form-row mb-4">
 
 							<div class="col">
 
-								<input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="Nom">
+								<input type="text" id="defaultRegisterFormFirstName" name="nom" class="form-control" placeholder="Nom">
 							</div>
 							<div class="col">
 								<!-- Last name -->
-								<input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Prénom">
+								<input type="text" id="defaultRegisterFormLastName" name="prenom" class="form-control" placeholder="Prénom">
 							</div>
 						</div>
-						</form>
-                        <input type="" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="Type de personnalité">
+
+
+                <div class="col">
+                    <label>Type de personnalité</label>
+                    <select name="personalite" class="browser-default custom-select mb-4">
+
+
+                        <?php foreach ($perso as $personalite){ ?>
+                            <option value="<?= $personalite['idcode_personalite'] ?>"><?=$personalite['code_personalite']?></option>
+                        <?php } ?>
+                    </select>
+                </div>
 
                         <span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success" style="margin-bottom: 6%"><i
                                         class="fas fa-plus fa-2x" onclick="duplicate()" aria-hidden="true"></i></a></span>
@@ -60,33 +73,24 @@
                             <div class="form-row mb-4">
                                 <div class="col">
                                     <label>Matière</label>
-                                    <select class="browser-default custom-select mb-4">
-                                        <option value="">PHP</option>
-                                        <option value="1">JAVA</option>
-                                        <option value="2">LARAVEL</option>
-                                        <option value="3">SYMFONY</option>
-                                        <option value="4">SQL</option>
-                                        <option value="4">ORACLE</option>
-                                        <option value="4">C++</option>
-                                        <option value="4">C#</option>
-                                        <option value="5">RUBY</option>
+                                    <select name="technologies" class="browser-default custom-select mb-4">
+
+
+                                        <?php foreach ($sql as $techno){ ?>
+                                            <option value="<?= $techno['idtechnologies'] ?>"><?=$techno['nom_technologie']?></option>
+                                        <?php } ?>
                                     </select>
                                 </div>
 
                                 <div class="col">
                                     <label class="text-center">Note de 0 à 10</label>
-                                    <select class="browser-default custom-select mb-4">
-                                        <option value="">0</option>
-                                        <option value="">1</option>
-                                        <option value="1">2</option>
-                                        <option value="2">3</option>
-                                        <option value="3">4</option>
-                                        <option value="4">5</option>
-                                        <option value="4">6</option>
-                                        <option value="4">7</option>
-                                        <option value="4">8</option>
-                                        <option value="4">9</option>
-                                        <option value="4">10</option>
+                                    <select name="note" class="browser-default custom-select mb-4">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
                                     </select>
 
                                 </div>
@@ -95,9 +99,11 @@
                         </div>
 
 					</div>
-                    <span class="table-add mb-3 mr-2 rounded mx-auto d-block"><a href="#!" class="text-success "><button type="button" class="btn btn-success btn-rounded btn-lg rounded mx-auto d-block">Enregistrer les informations</button></a></span>
+                    <span class="table-add mb-3 mr-2 rounded mx-auto d-block"><a href="#!" class="text-success ">
+                            <button type="submit" name="action" class="btn btn-success btn-rounded btn-lg rounded mx-auto d-block">Enregistrer les informations</button></a></span>
 
                 </div>
+                </form>
 			</div>
 		</div>
 		<div class="col"></div>

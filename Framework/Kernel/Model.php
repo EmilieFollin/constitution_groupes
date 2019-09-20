@@ -14,7 +14,7 @@ class Model
 
         $strBddServeur = "localhost";
         $strBddLogin = "root";
-        $strBddPassword = "123456";
+        $strBddPassword = "";
         $strBddBase = "profil";
 
 
@@ -48,6 +48,7 @@ class Model
     public function select($table,$where = '',$orderby ='',$limit=''){
         $requete="SELECT * FROM $table ".$where.$orderby.$limit;
         $resultat=$this->bdd->query($requete);
+        var_dump($resultat);
         return $resultat;
     }
     public function delete($table,$where = ''){

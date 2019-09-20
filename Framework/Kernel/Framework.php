@@ -1,5 +1,5 @@
 <?php
-
+require_once './Application/Controller/AddStudentController.php';
 require_once './Application/Controller/IndexController.php';
 require_once './Application/Controller/GroupeController.php';
 class Framework
@@ -59,7 +59,6 @@ class Framework
         }else{
             if (isset($getParamUrlArray[3])) {
                 if ($getParamUrlArray[2] != "" && $getParamUrlArray[3] != "") {
-                    var_dump(file_exists(CTRL_PATH . CONTROLLER . "Controller.php"));
                     if (file_exists(CTRL_PATH . CONTROLLER . "Controller.php")) {
                         $controllerName = CONTROLLER . "Controller";
                         $actionName = ACTION;
@@ -69,17 +68,17 @@ class Framework
                         if (method_exists($controller, ACTION)) {
                             $controller->$actionName();
                         } else {
-                            echo 'Marchee pas';
+                            echo 'Marche pas';
                         }
                     } else {
-                        echo 'Marchae pas';
+                        echo 'Marchhe pas';
                     }
                 } else {
-                    echo 'Marchde pas';
+                    echo 'Marche pas';
 
                 }
             } else {
-                echo 'Marchce pas';
+                echo 'Marche pas';
 
             }
         }
