@@ -55,7 +55,8 @@ on regarde ce qui lui manque<br>
 
 <h2>Requête API pour test avec POSTMAN</h2>
 
- POST : https://ruby-skill-teams-filtering.knmriznm.cf/
+ POST url : https://ruby-skill-teams-filtering.knmriznm.cf/
+ Param : _json
  
  BODY JSON : https://sharemycode.fr/n71           
 
