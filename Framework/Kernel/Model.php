@@ -15,7 +15,7 @@ class Model
 
         $strBddServeur = "localhost";
         $strBddLogin = "root";
-        $strBddPassword = "root";
+        $strBddPassword = "123456";
         $strBddBase = "profil";
 
 

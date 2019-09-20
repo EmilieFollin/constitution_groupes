@@ -10,6 +10,15 @@ class GroupeController extends Framework
         $nbrLeader = count($leader);
 
         $a = $groupe->triGroupe();
+        $client = new \GuzzleHttp\Client(["base_uri" => "https://ruby-skill-teams-filtering.knmriznm.cf/"]);
+        $options = [
+            'json' => $a
+        ];
+        $response = $client->post("/", $options);
+        $reponse = json_decode($response->getBody()->getContents());
+        print('<pre>'.print_r($reponse,true).'</pre>');
+
+
 
 
         $this->render('eleves',['leader'=>$leader,'nbrLeader'=>$nbrLeader,'a'=>$a]);
