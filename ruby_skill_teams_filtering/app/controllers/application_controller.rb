@@ -3,20 +3,15 @@ class ApplicationController < ActionController::Base
 
     def build_teams
 	require 'json'
-	raise 'AAYAYAYAYAOOO, YOU NEED TO POST BRUH' unless params[:_json]
+	raise "Param with '_json' key is required" unless params[:_json]
 	request = JSON.parse(params[:_json])
 	
 	received_teams = []
 	request.each do |received_team|
 		received_teams << received_team
 	end
-	p 'lllllllllllllllllllllllllll'
-	p received_teams.count
 	n_teams = received_teams.count
 
-        i = 1
-	
-	
         team_size = received_teams.first.count/n_teams 
         allowed_difference = team_size*0.2
 
@@ -30,7 +25,6 @@ class ApplicationController < ActionController::Base
             n_front = 0
             n_mid = 0
             team.each do |student|
-		p 'fffffffffffffffffffffffffffffffffffffffffffff'
                 p student
 		n_back += 1 if student['moyenne_back'].to_i > student['moyenne_front'].to_i
                 n_front += 1 if student['moyenne_front'].to_i > student['moyenne_back'].to_i
@@ -154,12 +148,14 @@ class ApplicationController < ActionController::Base
     def select_exchangeable_student(team, skill)
         if skill == 'front'
             team.each_with_index do |student, index|
+		next if index.zero?
                 next unless student['moyenne_front']
-                return index if student['moyenne_front'].to_i > student['moyenne_back'].to_i
+		return index if student['moyenne_front'].to_i > student['moyenne_back'].to_i
             end
         elsif skill == 'back'
             team.each_with_index do |student, index|
-                next unless student['moyenne_front']
+                next if index.zero?
+		next unless student['moyenne_front']
                 return index if student['moyenne_front'].to_i < student['moyenne_back'].to_i
             end
         end
