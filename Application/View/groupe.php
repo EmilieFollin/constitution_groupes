@@ -5,14 +5,14 @@
  * Date: 17/09/2019
  * Time: 15:07
  */
-//
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Constitution groupe</title>
-    <link rel="stylesheet" href="../../assets/style.css">
+    <link rel="stylesheet" href="../public/assets/style.css">
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
@@ -26,10 +26,10 @@
 <!-- Editable table -->
 <div class="container-fluid" id="container">
     <div class="row">
-        <div class="col"><a href="accueil.php"><button id="couleurretour" class="btn  red darken-3 btn-rounded btn-lg">Retour</button></a></div>
+        <div class="col"><a href="/consitu/Index/accueil"><button id="couleurretour" class="btn  red darken-3 btn-rounded btn-lg">Retour</button></a></div>
         <div class="col-8">
             <div>
-                <img id="image" class="rounded mx-auto d-block" src="../../assets/img/cropped-logo-school-2.png">
+                <img id="image" class="rounded mx-auto d-block" src="../public/assets/img/cropped-logo-school-2.png">
             </div>
         </div>
 

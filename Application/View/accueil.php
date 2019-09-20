@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Constitution groupe</title>
-    <link rel="stylesheet" href="../../assets/style.css">
+    <link rel="stylesheet" href="../public/assets/style.css">
     <script src="script.js"></script>
 
     <!-- Font Awesome -->
@@ -22,7 +22,7 @@
         <div class="col"></div>
         <div class="col-8">
             <div>
-                <img id="image" class="rounded mx-auto d-block" src="../../assets/img/cropped-logo-school-2.png">
+                <img id="image" class="rounded mx-auto d-block" src="../public/assets/img/cropped-logo-school-2.png">
             </div>
         </div>
 
@@ -37,7 +37,7 @@
             <div class="card">
                 <h3 class="card-header text-center font-weight-bold text-uppercase py-4">AJOUT DES ETUDIANTS DANS LA BASE</h3>
                 <div class="card-body">
-                    <h4 class="text-center" >Niveau de difficulté du projet</h4>
+                    <h4 class="text-center" >Nombre de groupe</h4>
                     <div class="def-number-input number-input safari_only rounded mx-auto d-block">
                         <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
                         <input class="quantity" min="2" max="10" name="quantity" value="2" type="number">
