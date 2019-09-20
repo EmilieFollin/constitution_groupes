@@ -22,7 +22,7 @@ Technos:
 <h4>Objet élève</h4>
 
 <ul>
-<li>id : bigint</li>
+<li>id : int</li>
 <li>average_back_rating : float</li>
 <li>average_front_rating : float</li>
 </ul>
@@ -51,6 +51,12 @@ on regarde ce qui lui manque<br>
 <strong>ALORS</strong> il y à échange entre les groupes demandeurs<br>
 <strong>SINON</strong> on garde les membres actuelles<br>
 <strong>FIN</strong>
-            
+
+
+<h2>Requête API pour test avec POSTMAN</h2>
+
+ POST : https://ruby-skill-teams-filtering.knmriznm.cf/
+ 
+ BODY JSON : https://sharemycode.fr/n71           
 
 
