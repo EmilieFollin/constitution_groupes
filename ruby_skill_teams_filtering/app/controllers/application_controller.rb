@@ -148,12 +148,14 @@ class ApplicationController < ActionController::Base
     def select_exchangeable_student(team, skill)
         if skill == 'front'
             team.each_with_index do |student, index|
+		next if index.zero?
                 next unless student['moyenne_front']
-                return index if student['moyenne_front'].to_i > student['moyenne_back'].to_i
+		return index if student['moyenne_front'].to_i > student['moyenne_back'].to_i
             end
         elsif skill == 'back'
             team.each_with_index do |student, index|
-                next unless student['moyenne_front']
+                next if index.zero?
+		next unless student['moyenne_front']
                 return index if student['moyenne_front'].to_i < student['moyenne_back'].to_i
             end
         end
