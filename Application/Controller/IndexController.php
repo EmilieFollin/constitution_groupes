@@ -9,12 +9,25 @@
 class IndexController extends Framework
 {
     public function index(){
-        include_once MDL_PATH.'Etudiants/Etudiants.php';
-        $etudiant = new Etudiants();
-     //   $student = $etudiant->getInstanceOf();
-     //   var_dump($student);
+        include MDL_PATH.'Groupes/Groupes.php';
+        $groupe = new Groupes();
+        $leader = $groupe->listLeader();
+        $nbrLeader = count($leader);
 
-        $this->render('groupe',[]);
+        $a = $groupe->triGroupe();
+        $a = json_encode($a);
+        $client = new \GuzzleHttp\Client(["base_uri" => "https://ruby-skill-teams-filtering.knmriznm.cf/"]);
+        $options = [
+            'json' => $a
+        ];
+
+        $response = $client->post("/", $options);
+        $reponse = json_decode($response->getBody()->getContents());
+        foreach ($reponse as $groupe){
+            array_pop($groupe);
+        }
+
+        $this->render('groupe',['groupe'=>$reponse]);
     }
 
     public function accueil(){

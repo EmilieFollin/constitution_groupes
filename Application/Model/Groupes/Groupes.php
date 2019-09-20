@@ -29,7 +29,6 @@ class Groupes
 
                 for($i=0;$i<$nbrGroupe;$i++){
                     $array[$i] = array();
-                    var_dump($array[$i]);
                 }
 
                 echo 'Il y aura '.floor($nbrEleveParGroupe).' personnes par groupe et '.$nbrEleveSup.' personnes en plus';
@@ -151,6 +150,21 @@ class Groupes
                             array_push($bigArray[$j], $randomExplorateur);
 
                         }
+                        if (count($diplomate) != 0 &&$nbrEleveParGroupe > count($bigArray[$j])) {
+                            $randomDiplomate = array_shift($diplomate);
+                            array_push($bigArray[$j], $randomDiplomate);
+
+                        }
+                        if (count($diplomate) != 0 &&$nbrEleveParGroupe > count($bigArray[$j])) {
+                            $randomDiplomate = array_shift($diplomate);
+                            array_push($bigArray[$j], $randomDiplomate);
+
+                        }
+                        if (count($diplomate) != 0 &&$nbrEleveParGroupe > count($bigArray[$j])) {
+                            $randomDiplomate = array_shift($diplomate);
+                            array_push($bigArray[$j], $randomDiplomate);
+
+                        }
 
                     }
 
@@ -251,6 +265,7 @@ class Groupes
                         array_push($bigArray[$j], $randomDiplomate);
 
                     }
+
                     if (count($sentinelle) != 0) {
                         $randomSentinelle = array_shift($sentinelle);
                         array_push($bigArray[$j], $randomSentinelle);
@@ -262,7 +277,7 @@ class Groupes
 
                     }
 
-                    if ($nbrEleveParGroupe > count($bigArray[$j])) {
+                    while ($nbrEleveParGroupe > count($bigArray[$j])) {
 
 
 
@@ -290,6 +305,7 @@ class Groupes
 
                         }
 
+
                     }
 
                 }
@@ -305,7 +321,7 @@ class Groupes
 
         }
 
-        if($_SESSION['nbrEleveSup'] != 0){
+        if(isset($_SESSION['nbrEleveSup'])&&$_SESSION['nbrEleveSup'] != 0){
             $arraySup = array();
             $result= array();
 
@@ -380,14 +396,14 @@ class Groupes
 
         }
         //print('<pre>'.print_r($bigArray,true).'</pre>');
-        /*print('Analyste:<pre>'.print_r($analyste,true).'</pre>');
+      /*  print('Analyste:<pre>'.print_r($analyste,true).'</pre>');
         print('Diplomate:<pre>'.print_r($diplomate,true).'</pre>');
         print('Sentinelle:<pre>'.print_r($sentinelle,true).'</pre>');
-        print('Explorateur:<pre>'.print_r($explorateur,true).'</pre>');*/
+        print('Explorateur:<pre>'.print_r($explorateur,true).'</pre>');
 
 
 
-
+*/
 
 
         return $bigArray;
