@@ -37,12 +37,26 @@
             <div class="card">
                 <h3 class="card-header text-center font-weight-bold text-uppercase py-4">AJOUT DES ETUDIANTS DANS LA BASE</h3>
                 <div class="card-body">
+                    <form method="post" action="Index/index">
                     <h4 class="text-center" >Nombre de groupe</h4>
                     <div class="def-number-input number-input safari_only rounded mx-auto d-block">
                         <button onclick="this.parentNode.querySelector('input[type=number]').stepDown()" class="minus"></button>
-                        <input class="quantity" min="2" max="10" name="quantity" value="2" type="number">
+                        <input class="quantity" min="2" max="10" name="groupe" value="2" type="number">
                         <button onclick="this.parentNode.querySelector('input[type=number]').stepUp()" class="plus"></button>
                     </div>
+                        <h4 class="text-center" >Nombre d'élève</h4>
+                        <div class="def-number-input number-input safari_only rounded mx-auto d-block">
+
+                            <input class="form-control" name="eleve" type="text">
+
+                        </div>
+                        <input type="submit" class="btn btn-success" value="Valider" name="valider"/>
+                    </form>
+                    <?php if($result !== null){
+                        echo '<p>Il y aura '.$result.' personnes par groupe</p>';
+                    }
+
+                    ?>
                     <div id="table" class="table-editable"><span class="table-add float-right mb-3 mr-2"><a href="#!" class="text-success"><i
                                         class="fas fa-plus fa-2x" aria-hidden="true"></i></a></span>
                         <table class="table table-bordered table-responsive-md table-striped text-center">

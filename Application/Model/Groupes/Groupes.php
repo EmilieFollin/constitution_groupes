@@ -27,10 +27,6 @@ class Groupes
                 $_SESSION['nbrGroupe'] = $nbrGroupe;
                 $_SESSION['nbrEleveSup'] = $nbrEleveSup;
 
-                for($i=0;$i<$nbrGroupe;$i++){
-                    $array[$i] = array();
-                    var_dump($array[$i]);
-                }
 
                 echo 'Il y aura '.floor($nbrEleveParGroupe).' personnes par groupe et '.$nbrEleveSup.' personnes en plus';
 
@@ -151,6 +147,7 @@ class Groupes
                             array_push($bigArray[$j], $randomExplorateur);
 
                         }
+
 
                     }
 

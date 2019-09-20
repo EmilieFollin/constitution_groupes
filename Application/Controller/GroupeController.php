@@ -30,7 +30,7 @@ class GroupeController extends Framework
         $data = new Groupes();
         $result = $data->nbrGroupe();
 
-        $this->render('nbrGroupe',['result'=>$result]);
+        $this->render('accueil',['result'=>$result]);
 
     }
 
