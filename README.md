@@ -48,7 +48,7 @@ On regarde si les groupes sont homogènes<br>
 on regarde ce qui lui manque<br>
 <strong>SI</strong> il manque un front le groupe devient "demandeur" de front<br>
 <strong>SI</strong> il manque un back le groupe devient "demandeur" de back<br>
-<strong>ALORS</strong> il y à échange entre les groupes demandeurs<br>
+<strong>ALORS</strong> il y à échange entre les groupes demandeurs à partir de l'index 1 des groupes (étant donné que 0 = leader)<br>
 <strong>SINON</strong> on garde les membres actuelles<br>
 <strong>FIN</strong>
 
