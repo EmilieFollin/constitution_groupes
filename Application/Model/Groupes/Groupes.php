@@ -13,6 +13,9 @@ class Groupes
             if($nbrEleve % $nbrGroupe === 0){
                 $nbrEleveParGroupe = $nbrEleve / $nbrGroupe;
                 $_SESSION['eleveParGroupe'] = $nbrEleveParGroupe;
+                if(isset($_SESSION['nbrEleveSup'])){
+                    unset($_SESSION['nbrEleveSup']);
+                }
 
 
 
@@ -88,7 +91,7 @@ class Groupes
 
 
 
-            if($nbrLeader == $nbrGroupe) {
+            if($nbrLeader >= $nbrGroupe) {
                 $newLeader = array_shift($leader);
                 array_push($bigArray[$j], $newLeader);
                 $countArray = count($bigArray[$j]);
@@ -158,7 +161,139 @@ class Groupes
 
 
 
-            } elseif ($nbrLeader > $nbrGroupe) {
+
+            } elseif ($nbrLeader < $nbrGroupe) {
+                if(count($leader) != 0) {
+                    $newLeader = array_shift($leader);
+                    array_push($bigArray[$j], $newLeader);
+                }
+                $countArray = count($bigArray[$j]);
+
+
+                if ($nbrEleveParGroupe > $countArray) {
+
+
+
+
+                    if (count($analyste) != 0) {
+
+                        $randomAnalyste = array_shift($analyste);
+                        array_push($bigArray[$j], $randomAnalyste);
+
+
+                    }
+                    if (count($diplomate) != 0) {
+                        $randomDiplomate = array_shift($diplomate);
+                        array_push($bigArray[$j], $randomDiplomate);
+
+                    }
+                    if (count($sentinelle) != 0) {
+                        $randomSentinelle = array_shift($sentinelle);
+                        array_push($bigArray[$j], $randomSentinelle);
+
+                    }
+                    if (count($explorateur) != 0) {
+                        $randomExplorateur = array_shift($explorateur);
+                        array_push($bigArray[$j], $randomExplorateur);
+
+                    }
+
+                    if ($nbrEleveParGroupe > count($bigArray[$j])) {
+
+
+
+
+                        if (count($analyste) != 0 && $nbrEleveParGroupe > count($bigArray[$j])) {
+
+                            $randomAnalyste = array_shift($analyste);
+                            array_push($bigArray[$j], $randomAnalyste);
+
+
+                        }
+                        if (count($diplomate) != 0 &&$nbrEleveParGroupe > count($bigArray[$j])) {
+                            $randomDiplomate = array_shift($diplomate);
+                            array_push($bigArray[$j], $randomDiplomate);
+
+                        }
+                        if (count($sentinelle) != 0 && $nbrEleveParGroupe > count($bigArray[$j])) {
+                            $randomSentinelle = array_shift($sentinelle);
+                            array_push($bigArray[$j], $randomSentinelle);
+
+                        }
+                        if (count($explorateur) != 0 && $nbrEleveParGroupe > count($bigArray[$j])) {
+                            $randomExplorateur = array_shift($explorateur);
+                            array_push($bigArray[$j], $randomExplorateur);
+
+                        }
+
+                    }
+
+
+                }
+
+            } elseif ($nbrLeader == 0) {
+                $countArray = count($bigArray[$j]);
+
+
+                if ($nbrEleveParGroupe > $countArray) {
+
+
+
+
+                    if (count($analyste) != 0) {
+
+                        $randomAnalyste = array_shift($analyste);
+                        array_push($bigArray[$j], $randomAnalyste);
+
+
+                    }
+                    if (count($diplomate) != 0) {
+                        $randomDiplomate = array_shift($diplomate);
+                        array_push($bigArray[$j], $randomDiplomate);
+
+                    }
+                    if (count($sentinelle) != 0) {
+                        $randomSentinelle = array_shift($sentinelle);
+                        array_push($bigArray[$j], $randomSentinelle);
+
+                    }
+                    if (count($explorateur) != 0) {
+                        $randomExplorateur = array_shift($explorateur);
+                        array_push($bigArray[$j], $randomExplorateur);
+
+                    }
+
+                    if ($nbrEleveParGroupe > count($bigArray[$j])) {
+
+
+
+
+                        if (count($analyste) != 0 && $nbrEleveParGroupe > count($bigArray[$j])) {
+
+                            $randomAnalyste = array_shift($analyste);
+                            array_push($bigArray[$j], $randomAnalyste);
+
+
+                        }
+                        if (count($diplomate) != 0 &&$nbrEleveParGroupe > count($bigArray[$j])) {
+                            $randomDiplomate = array_shift($diplomate);
+                            array_push($bigArray[$j], $randomDiplomate);
+
+                        }
+                        if (count($sentinelle) != 0 && $nbrEleveParGroupe > count($bigArray[$j])) {
+                            $randomSentinelle = array_shift($sentinelle);
+                            array_push($bigArray[$j], $randomSentinelle);
+
+                        }
+                        if (count($explorateur) != 0 && $nbrEleveParGroupe > count($bigArray[$j])) {
+                            $randomExplorateur = array_shift($explorateur);
+                            array_push($bigArray[$j], $randomExplorateur);
+
+                        }
+
+                    }
+
+                }
 
             }
 
@@ -167,8 +302,85 @@ class Groupes
 
 
 
+
+
         }
-        print('<pre>'.print_r($bigArray,true).'</pre>');
+
+        if($_SESSION['nbrEleveSup'] != 0){
+            $arraySup = array();
+            $result= array();
+
+
+            if (count($leader) != 0) {
+
+
+                $result = array_merge($arraySup,$leader);
+
+
+
+
+
+            }
+
+            if (count($analyste) != 0) {
+                if(count($result) != 0){
+                    $result =array_merge($result,$analyste);
+                } else {
+
+                $result = array_merge($arraySup,$analyste);
+                }
+
+
+
+
+
+
+
+            }
+            if (count($diplomate) != 0 ) {
+                if(count($result) != 0){
+
+                $result = array_merge($result,$diplomate);
+                } else {
+                    $result = array_merge($arraySup,$diplomate);
+
+                }
+
+
+            }
+            if (count($sentinelle) != 0) {
+                if(count($result) != 0){
+
+                $result = array_merge($result,$sentinelle);
+                } else {
+                    $result = array_merge($arraySup,$sentinelle);
+                }
+
+
+            }
+            if (count($explorateur) != 0) {
+                if(count($result) != 0){
+
+                $result = array_merge($result,$explorateur);
+                } else {
+                    $result = array_merge($arraySup,$explorateur);
+                }
+
+
+            }
+
+            for($p=0;$p<$_SESSION['nbrEleveSup'];$p++){
+                if(count($result)!= 0){
+                    $data = array_shift($result);
+                    $index = array_rand($bigArray);
+                    array_push($bigArray[$index],$data);
+                }
+            }
+
+
+
+        }
+        //print('<pre>'.print_r($bigArray,true).'</pre>');
         /*print('Analyste:<pre>'.print_r($analyste,true).'</pre>');
         print('Diplomate:<pre>'.print_r($diplomate,true).'</pre>');
         print('Sentinelle:<pre>'.print_r($sentinelle,true).'</pre>');
@@ -179,6 +391,6 @@ class Groupes
 
 
 
-        return $data;
+        return $bigArray;
     }
 }
