@@ -1,5 +1,5 @@
 # constitution_groupes
-Emilie - Lou - Joffrey - Theo - Hugo - Jerome - Edwin - Thomas
+Emilish - Lou - Geofrai - Taio - Ugoh - Jairaumme - Edwin - Thomas
 
 
 Git Master : Joffrey - Github
