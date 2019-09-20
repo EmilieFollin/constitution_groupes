@@ -15,7 +15,7 @@ Feuille de route :
 
 Technos:
  - BDD -> Mysql
- - Language -> PHP(objet)
+ - Language -> PHP(objet) + Ruby
 
 <h2>Algo affinage en fonction des notes :</h2>
 
