@@ -55,10 +55,8 @@ on regarde ce qui lui manque<br>
 
 <h2>Requête API pour test avec POSTMAN</h2>
 
- POST url : https://ruby-skill-teams-filtering.knmriznm.cf/
- Param : _json
- 
+ POST url : https://ruby-skill-teams-filtering.knmriznm.cf/<br>
+ Param : _json<br>
  BODY JSON : https://sharemycode.fr/n71           
 
 
- - Language -> PHP(objet)
