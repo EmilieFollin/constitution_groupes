@@ -85,6 +85,12 @@ fabric.properties
 
 # End of https://www.gitignore.io/api/phpstorm
 
+/ruby_skill_teams_filtering/.bundle
+/ruby_skill_teams_filtering/log/*
+/ruby_skill_teams_filtering/tmp/*
+/ruby_skill_teams_filtering/storage/*
+/ruby_skill_teams_filtering/public/assets
+/ruby_skill_teams_filtering/config/master.key
 constitution_groupes.yml
 misc.xml
 modules.xml

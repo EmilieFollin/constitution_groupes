@@ -15,4 +15,50 @@ Feuille de route :
 
 Technos:
  - BDD -> Mysql
+ - Language -> PHP(objet) + Ruby
+
+<h2>Algo affinage en fonction des notes :</h2>
+
+<h4>Objet élève</h4>
+
+<ul>
+<li>id : int</li>
+<li>average_back_rating : float</li>
+<li>average_front_rating : float</li>
+</ul>
+
+<h4>Calcul du nb de front, back et mid par groupe.</h4>
+
+Pour chaque groupe analyse de la moyenne de chaque élève
+retourne le total de front, back et mid par groupe
+
+<h4>Analyse des groupes en fonctions des notes</h4>
+
+On regarde si les groupes sont homogènes<br>
+<strong>DEBUT</strong><br>
+<strong>SI</strong> groupe homogène (3 front 2 back ou 3 front 1 back 1 mid ...)<br>
+<strong>ALORS</strong> on préserve le groupe<br>
+<strong>SINON</strong> réafectation_des_membres()<br>
+<strong>FIN</strong>
+<h4>Réafectation des groupes en cas d'écart de moyenne importantes</h4>
+
+<strong>SI</strong> un groupe n'est pas homogène<br> 
+
+<strong>DEBUT</STRONG><br>
+on regarde ce qui lui manque<br>
+<strong>SI</strong> il manque un front le groupe devient "demandeur" de front<br>
+<strong>SI</strong> il manque un back le groupe devient "demandeur" de back<br>
+<strong>ALORS</strong> il y à échange entre les groupes demandeurs<br>
+<strong>SINON</strong> on garde les membres actuelles<br>
+<strong>FIN</strong>
+
+
+<h2>Requête API pour test avec POSTMAN</h2>
+
+ POST url : https://ruby-skill-teams-filtering.knmriznm.cf/
+ Param : _json
+ 
+ BODY JSON : https://sharemycode.fr/n71           
+
+
  - Language -> PHP(objet)
