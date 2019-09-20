@@ -64,7 +64,6 @@ class Framework
         }else{
             if (isset($getParamUrlArray[3])) {
                 if ($getParamUrlArray[2] != "" && $getParamUrlArray[3] != "") {
-                    var_dump(file_exists(CTRL_PATH . CONTROLLER . "Controller.php"));
                     if (file_exists(CTRL_PATH . CONTROLLER . "Controller.php")) {
                         $controllerName = CONTROLLER . "Controller";
                         $actionName = ACTION;

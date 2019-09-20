@@ -56,6 +56,11 @@
 
 <div class="container-fluid">
     <div class="row">
+
+
+        <?php
+            foreach ($groupe as $groupes){
+        ?>
         <div id="affichagegrp" class="col-4 rounded mx-auto d-block"><!-- Card -->
             <div class="card" id="bkcard">
 
@@ -70,7 +75,7 @@
                 <div class="card-body">
 
                     <!-- Title -->
-                    <h3 class="card-title text-center"><strong>GROUPE 1</strong></h3>
+                    <h3 class="card-title text-center"><strong>GROUPE</strong></h3>
                     <!-- Text -->
                     <table class="table table-striped text-center">
                         <thead>
@@ -82,36 +87,29 @@
                         </tr>
                         </thead>
                         <tbody>
+                        <?php foreach ($groupes as $person){ ?>
                         <tr>
+                            <?php ?>
                             <th scope="row">1</th>
-                            <td></td>
-                            <td></td>
+                            <?php
+                            if (isset($person->nom)) {
+                                ?>
+                                <td>
+                                    <?php
+                                    echo $person->nom;
+                                    ?>
+                                </td>
+
+                                <td><?php
+                                    echo $person->prenom;
+                                    ?></td>
+                                <?php
+                            }
+                            ?>
 
                         </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td></td>
-                            <td></td>
+                        <?php }?>
 
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-                        <tr>
-                            <th scope="row">5</th>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
                         </tbody>
                     </table>
 
@@ -119,132 +117,7 @@
 
             </div>
             <!-- Card --></div>
-        <div id="affichagegrp" class="col-4 rounded mx-auto d-block">
-            <!-- Card -->
-            <div class="card" id="bkcard">
-
-                <!-- Card image -->
-                <div class="view overlay">
-                    <a href="#!">
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-
-                <!-- Card content -->
-                <div class="card-body">
-
-                    <!-- Title -->
-                    <h3 class="card-title text-center"><strong>GROUPE 2</strong></h3>
-                    <!-- Text -->
-                    <table class="table table-striped text-center">
-                        <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col"><strong>Nom</strong></th>
-                            <th scope="col"><strong>Prénom</strong></th>
-
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-                        <tr>
-                            <th scope="row">5</th>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-            </div>
-            <!-- Card --></div>
-        <div id="affichagegrp" class="col-4 rounded mx-auto d-block"><!-- Card -->
-            <div class="card" id="bkcard">
-
-                <!-- Card image -->
-                <div class="view overlay">
-                    <a href="#!">
-                        <div class="mask rgba-white-slight"></div>
-                    </a>
-                </div>
-
-                <!-- Card content -->
-                <div class="card-body">
-
-                    <!-- Title -->
-                    <h3 class="card-title text-center"><strong>GROUPE 3</strong></h3>
-                    <!-- Text -->
-                    <table class="table table-striped text-center">
-                        <thead>
-                        <tr>
-                            <th scope="col">#</th>
-                            <th scope="col"><strong>Nom</strong></th>
-                            <th scope="col"><strong>Prénom</strong></th>
-
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-                        <tr>
-                            <th scope="row">4</th>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-                        <tr>
-                            <th scope="row">5</th>
-                            <td></td>
-                            <td></td>
-
-                        </tr>
-                        </tbody>
-                    </table>
-
-                </div>
-
-            </div>
-            <!-- Card --></div>
+        <?php }?>
 
     </div>
 
